@@ -6,7 +6,6 @@ import express, { Express, Request, Response } from 'express'
 import routes from './routes'
 import mongoose from 'mongoose'
 
-
 const app: Express = express()
 dotenv.config()
 
@@ -19,6 +18,21 @@ app.use((req: Request, res: Response, next) => {
 
 app.use(routes)
 
-app.listen(process.env.PORT, () => {
-  console.log('app listening at port', process.env.PORT)
-})
+// connect to db
+const connectDb = async () => {
+  try {
+    // Periksa apakah process.env.MONGO_URI tidak bernilai undefined
+    if (!process.env.MONGO_URI) {
+      throw new Error('MONGO_URI environment variable is not defined');
+    }
+    await mongoose.connect(process.env.MONGO_URI)
+
+    app.listen(process.env.PORT, () => {
+      console.log('connected to mongodb & listening on port', process.env.PORT)
+    })
+  } catch(err) {
+    console.error(err)
+  }
+}
+
+connectDb()
