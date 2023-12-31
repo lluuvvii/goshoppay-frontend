@@ -3,6 +3,7 @@
 // const mongoose = require('mongoose')
 import dotenv from 'dotenv'
 import express, { Express, Request, Response } from 'express'
+import routes from './routes'
 import mongoose from 'mongoose'
 
 
@@ -16,9 +17,7 @@ app.use((req: Request, res: Response, next) => {
   next()
 })
 
-app.get('/api/hello', (req: Request, res: Response) => {
-  res.json({ hello: "hello world" })
-})
+app.use(routes)
 
 app.listen(process.env.PORT, () => {
   console.log('app listening at port', process.env.PORT)
