@@ -1,24 +1,13 @@
 import { Schema, model } from 'mongoose'
 
-const productSchema = new Schema({
+const shopSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Name is required']
   },
-  price: {
-    type: Number,
-    required: [true, 'Price is required']
-  },
-  shop_id: {
+  user_id: {
     type: Schema.Types.ObjectId,
-    required: [true, 'ShopId is required']
-  },
-  shop_name: {
-    type: String,
-    required: [true, 'ShopName is required']
-  },
-  image: {
-    type: String
+    required: true
   },
   category: {
     type: String,
@@ -33,4 +22,4 @@ const productSchema = new Schema({
   }
 })
 
-export default model('Products', productSchema)
+export default model('Shop', shopSchema)
