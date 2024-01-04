@@ -17,8 +17,8 @@ const userSchema = new Schema({
   image_profile: {
     type: String
   },
-  shop_id: {
-    type: Schema.Types.ObjectId
+  address: {
+    type: String
   }
 })
 

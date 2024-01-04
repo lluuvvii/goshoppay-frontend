@@ -13,10 +13,6 @@ const productSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: [true, 'Store id is required']
   },
-  Store_name: {
-    type: String,
-    required: [true, 'Store name is required']
-  },
   image: {
     type: String
   },
