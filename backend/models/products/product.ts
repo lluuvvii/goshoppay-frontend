@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose'
+import productDetailSchema from './productDetail'
 
 const productSchema = new Schema({
   name: {
@@ -11,14 +12,14 @@ const productSchema = new Schema({
   },
   store_id: {
     type: Schema.Types.ObjectId,
-    required: [true, 'Store id is required']
+    ref: 'Store',
+    required: [true, 'StoreId is required']
   },
   image: {
     type: String
   },
   category: {
     type: String,
-    required: [true, 'Category is required']
   },
   description: {
     type: String
@@ -26,7 +27,12 @@ const productSchema = new Schema({
   stock: {
     type: Number,
     required: [true, 'Stock is required']
-  }
+  },
+  reviews: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Review'
+  }],
+  details: productDetailSchema
 })
 
 export default model('Products', productSchema)
