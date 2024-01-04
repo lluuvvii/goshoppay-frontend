@@ -9,13 +9,13 @@ const productSchema = new Schema({
     type: Number,
     required: [true, 'Price is required']
   },
-  shop_id: {
+  store_id: {
     type: Schema.Types.ObjectId,
-    required: [true, 'ShopId is required']
+    required: [true, 'Store id is required']
   },
-  shop_name: {
+  Store_name: {
     type: String,
-    required: [true, 'ShopName is required']
+    required: [true, 'Store name is required']
   },
   image: {
     type: String
