@@ -8,6 +8,9 @@ const categorySchema = new Schema({
   },
   description: {
     type: String
+  },
+  goods_id: {
+    type: Schema.Types.ObjectId
   }
 })
 
