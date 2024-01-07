@@ -15,6 +15,9 @@ const reviewSchema = new Schema({
     type: Number,
     required: [true, 'Rating is required']
   },
+  comment: {
+    type: String,
+  },
   review_date: {
     type: Date,
     default: Date.now,
