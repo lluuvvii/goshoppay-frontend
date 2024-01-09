@@ -7,8 +7,10 @@ const authOptions = {
       clientId: `${process.env.GOOGLE_CLIENT_ID}`,
       clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`
     })
-  ]
+  ],
+  secret: process.env.NEXTAUTH_SECRET
 }
 
-export { authOptions }
-export default NextAuth(authOptions)
+const handler = NextAuth(authOptions)
+
+export { handler as GET, handler as POST, authOptions }
