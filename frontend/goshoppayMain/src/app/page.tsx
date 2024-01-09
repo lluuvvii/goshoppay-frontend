@@ -1,5 +1,7 @@
-export default function Home() {
+const Home = () => {
   return (
-    <div>HOME PAGE</div>
+    <div className='bg-color-primary'>HOME</div>
   )
 }
+
+export default Home
