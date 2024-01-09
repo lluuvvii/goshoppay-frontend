@@ -1,16 +1,16 @@
-// const dotenv = require("dotenv")
-// const express, { Request, Response } = require("express")
-// const mongoose = require('mongoose')
 import dotenv from 'dotenv'
 import express, { Express, Request, Response } from 'express'
-import routes from './routes'
 import mongoose from 'mongoose'
+import routes from './routes'
 
+// express config
 const app: Express = express()
-dotenv.config()
-
 app.use(express.json())
 
+// env config
+dotenv.config()
+
+// Middleware to view method action
 app.use((req: Request, res: Response, next) => {
   console.log(req.path, req.method)
   next()
@@ -30,7 +30,7 @@ const connectDb = async () => {
     app.listen(process.env.PORT, () => {
       console.log('connected to mongodb & listening on port', process.env.PORT)
     })
-  } catch(err) {
+  } catch (err) {
     console.error(err)
   }
 }
