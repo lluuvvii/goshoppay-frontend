@@ -18,10 +18,10 @@ const addUser = async (req: Request, res: Response) => {
       })
     }
 
-    return true
-  } catch (err) {
+    res.status(200).json({ userExists })
+  } catch (err: any) {
     console.error(err)
-    return false
+    res.status(400).json({ error: err.message })
   }
 }
 

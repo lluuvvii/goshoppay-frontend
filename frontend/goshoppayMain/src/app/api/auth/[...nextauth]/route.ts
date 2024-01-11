@@ -1,6 +1,5 @@
 import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
-import User from '../../../../../../../backend/models/user'
 
 const authOptions = {
   providers: [
@@ -13,17 +12,20 @@ const authOptions = {
   callbacks: {
     async signIn({ profile }: any) {
       try {
-        const userExists = await User.findOne({ email: profile.email })
+        // send to http://localhost:4000/api/user
+        const response = await fetch('http://localhost:4000/api/user', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ profile }),
+        })
 
-        if (!userExists) {
-          await User.create({
-            email: profile.email,
-            username: profile.name.replace(" ", "").toLowerCase(),
-            image: profile.picture
-          })
+        if (response.ok) {
+          return true
         }
-
-        return true
+        console.error('Failed to send profile to server')
+        return false
       } catch (err) {
         console.error(err)
         return false
