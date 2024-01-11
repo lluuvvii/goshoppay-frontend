@@ -8,7 +8,9 @@ const authOptions = {
       clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`
     })
   ],
-  secret: process.env.NEXTAUTH_SECRET
+  secret: process.env.NEXTAUTH_SECRET,
+  async signIn({ profile }: any) {
+  }
 }
 
 const handler = NextAuth(authOptions)
