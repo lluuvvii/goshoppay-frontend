@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
+import User from '../../../../../../../backend/models/user'
 
 const authOptions = {
   providers: [
@@ -9,7 +10,25 @@ const authOptions = {
     })
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  async signIn({ profile }: any) {
+  callbacks: {
+    async signIn({ profile }: any) {
+      try {
+        const userExists = await User.findOne({ email: profile.email })
+
+        if (!userExists) {
+          await User.create({
+            email: profile.email,
+            username: profile.name.replace(" ", "").toLowerCase(),
+            image: profile.picture
+          })
+        }
+
+        return true
+      } catch (err) {
+        console.error(err)
+        return false
+      }
+    }
   }
 }
 
