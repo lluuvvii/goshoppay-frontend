@@ -14,7 +14,7 @@ const addUser = async (req: Request, res: Response) => {
       await User.create({
         email: profile.email,
         username: profile.name.replace(" ", "").toLowerCase(),
-        image: profile.picture
+        image_profile: profile.picture
       })
     }
 
