@@ -1,9 +1,7 @@
 import Link from 'next/link'
 import SignInButton from './SignInButton'
-import { userAuthSession } from '@/libs/authSession'
 
-const Navbar = async () => {
-  const user = await userAuthSession()
+const Navbar = () => {
 
   return (
     <nav className='bg-color-primary p-4 flex justify-between items-center'>
@@ -15,7 +13,7 @@ const Navbar = async () => {
       </Link>
 
       {/* Sign In Button */}
-      <SignInButton user={user} />
+      <SignInButton />
     </nav>
   )
 }
