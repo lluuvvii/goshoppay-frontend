@@ -13,7 +13,7 @@ const addUser = async (req: Request, res: Response) => {
     if (!userExists) {
       await User.create({
         email: profile.email,
-        username: profile.name.replace(" ", "").toLowerCase(),
+        username: profile.name.replace(/\s/g, "").toLowerCase(),
         image_profile: profile.picture
       })
     }
