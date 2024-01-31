@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer"
 import Product from "@/components/Product"
 
 const Home = async () => {
@@ -6,7 +7,12 @@ const Home = async () => {
       <div className='flex justify-center items-center'>
         <h1>HOME</h1>
       </div>
-      <Product />
+      <section>
+        <Product />
+      </section>
+      <section>
+        <Footer />
+      </section>
     </div>
   )
 }
