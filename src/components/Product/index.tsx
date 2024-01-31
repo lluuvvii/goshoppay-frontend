@@ -13,6 +13,14 @@ const Product = () => {
     { id: 2, title: 'Card 2', content: 'Consectetur adipiscing elit.' },
     { id: 3, title: 'Card 3', content: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
     { id: 4, title: 'Card 4', content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.' },
+    { id: 1, title: 'Card 1', content: 'Lorem ipsum dolor sit amet.' },
+    { id: 2, title: 'Card 2', content: 'Consectetur adipiscing elit.' },
+    { id: 3, title: 'Card 3', content: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { id: 4, title: 'Card 4', content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.' },
+    { id: 1, title: 'Card 1', content: 'Lorem ipsum dolor sit amet.' },
+    { id: 2, title: 'Card 2', content: 'Consectetur adipiscing elit.' },
+    { id: 3, title: 'Card 3', content: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { id: 4, title: 'Card 4', content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.' },
   ]
   return (
     <div className='max-w-screen-sm p-4 md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto my-8'>
