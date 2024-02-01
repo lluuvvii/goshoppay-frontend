@@ -4,7 +4,7 @@ import SignInButton from './SignInButton'
 const Navbar = () => {
 
   return (
-    <nav className='flex flex-wrap justify-between items-center bg-color-primary p-4'>
+    <nav className='flex flex-wrap justify-between w-full items-center bg-color-primary p-4'>
       {/* Logo */}
       <Link href='/'>
         <div className='text-white text-2xl font-bold'>
