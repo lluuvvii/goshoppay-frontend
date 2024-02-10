@@ -8,6 +8,8 @@ const Card = ({ title, content }:any) => {
 }
 
 const Product = () => {
+
+  // upcoming update
   const cards = [
     { id: 1, title: 'Card 1', content: 'Lorem ipsum dolor sit amet.' },
     { id: 2, title: 'Card 2', content: 'Consectetur adipiscing elit.' },
